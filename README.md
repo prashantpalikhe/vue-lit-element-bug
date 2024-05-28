@@ -1,75 +1,12 @@
-# Nuxt 3 Minimal Starter
+# Bug with Lit element and ClientOnly Nuxt component
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Steps
 
-## Setup
+1. yarn
+2. yarn dev
 
-Make sure to install the dependencies:
+## Expected behavior
 
-```bash
-# npm
-npm install
+All `<acme-label />` should have `for` attribute and therefore be green in color.
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+But, the `acme-label` inside `<ClientOnly />` is red. And to ensure it is not a Nuxt issue, there is a `<FakeClientOnly />` that just emulates the behavior of `ClientOnly` and it also has the same issue. Indicating it maybe a Vue issue.
